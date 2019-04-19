@@ -1,0 +1,16 @@
+package ClassDetailInfo;
+
+public abstract class ClassMemberAbstract {
+	public void set_reference(String _reference) {}
+	public void set_Name(String _reference) {}
+	public String getType() 
+	{
+		return null;
+	}
+	
+	public String getName() 
+	{
+		return null;
+	}
+
+}

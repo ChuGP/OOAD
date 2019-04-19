@@ -1,0 +1,50 @@
+package uml_generator;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class uml_GUI extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					uml_GUI frame = new uml_GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public uml_GUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(200, 200, 606, 498);
+		JFrame jframe = new JFrame("視窗程式");
+//		contentPane = new JPanel();
+		jframe.setSize(300, 400);
+
+        // 設定視窗開啟時的位置，有以下兩種常用設定方法
+        jframe.setLocation(0,0); // --> 設定視窗開啟時左上角的座標，也可帶入Point物件
+        jframe.setLocationRelativeTo(null); // --> 設定開啟的位置和某個物件相同，帶入null則
+        jframe.setVisible(true);
+////		contentPane.setSize(1000,1000);
+//		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+//		contentPane.setLayout(new BorderLayout(0, 0));
+//		setContentPane(contentPane);
+	}
+
+}

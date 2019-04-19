@@ -1,0 +1,28 @@
+1555416482990	Delete element
+1555505784496	Delete element
+1555505889487	Delete element
+1555508433611	Rename type 'variable_Detail'
+1555588846156	Rename field 'Variable_table'
+1555588861044	Rename field 'Variable_list'
+1555588888195	Rename field 'function_table'
+1555588906069	Rename field 'Relationship_table'
+1555588948626	Rename type 'uml_GUI'
+1555589868861	Copy compilation unit
+1555591202398	Encapsulate field 'reference'
+1555591214875	Encapsulate field 'variableType'
+1555591221742	Encapsulate field 'variableName'
+1555591539720	Encapsulate field '_functuonType'
+1555591547813	Encapsulate field '_reference'
+1555591553987	Encapsulate field '_functuonName'
+1555591789459	Encapsulate field '_className'
+1555591793954	Encapsulate field '_realtionship'
+1555591824404	Rename type 'class_Detail'
+1555591855967	Rename type 'ClassInfo'
+1555592134504	Encapsulate field '_MemberVariable'
+1555592141044	Encapsulate field '_MemberFunction'
+1555592146205	Encapsulate field '_ClassRelarionship'
+1555592168846	Delete element
+1555592272300	Delete element
+1555592368427	Rename type 'MemerFunction'
+1555592796549	Encapsulate field '_class_name'
+1555599089728	Rename method 'getTable_SetToMap'
