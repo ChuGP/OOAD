@@ -1,0 +1,78 @@
+package uml_generator;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.GridLayout;
+import java.awt.FlowLayout;
+
+public class uml_GUI extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textName;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					uml_GUI frame = new uml_GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public uml_GUI() {
+		setTitle("UML_GENERATOR");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(1000, 800, 737, 564);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		setContentPane(contentPane);
+		
+		JButton btnRead = new JButton("Read");
+		btnRead.setBounds(482, 22, 67, 25);
+		btnRead.setBackground(new Color(240, 240, 240));
+		btnRead.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnRead.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println(textName.getText());
+			}
+		});
+		contentPane.setLayout(null);
+		
+		
+		
+		JLabel labelName = new JLabel("Class");
+		labelName.setBounds(171, 26, 35, 17);
+		labelName.setFont(new Font("Arial", Font.PLAIN, 14));
+		contentPane.add(labelName);
+		
+		textName = new JTextField();
+		textName.setBounds(211, 10, 266, 50);
+		contentPane.add(textName);
+		textName.setColumns(10);
+		contentPane.add(btnRead);
+	}
+}

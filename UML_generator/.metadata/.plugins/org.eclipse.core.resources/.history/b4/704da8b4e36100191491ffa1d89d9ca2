@@ -1,0 +1,5 @@
+package ClassDetailInfo;
+
+public abstract class ClassMemberAbstract {
+
+}

@@ -1,0 +1,31 @@
+package ClassDetailInfo;
+
+public class MemberFunction {
+	private String _reference, _functuonType, _functuonName;
+	public MemberFunction() {}
+	public MemberFunction(String reference, String functuonType, String functuonName) 
+	{
+		set_reference(reference);
+		set_functuonType(functuonType);
+		set_functuonName(functuonName);
+	}
+	public String get_functuonType() {
+		return _functuonType;
+	}
+	public void set_functuonType(String _functuonType) {
+		this._functuonType = _functuonType;
+	}
+	public String get_reference() {
+		return _reference;
+	}
+	public void set_reference(String _reference) {
+		this._reference = _reference;
+	}
+	public String get_functuonName() {
+		return _functuonName;
+	}
+	public void set_functuonName(String _functuonName) {
+		this._functuonName = _functuonName;
+	}
+
+}

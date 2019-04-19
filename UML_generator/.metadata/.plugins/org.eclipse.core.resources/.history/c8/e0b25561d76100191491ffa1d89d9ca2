@@ -1,0 +1,37 @@
+package ClassDetailInfo;
+
+public class MemberVariable {
+	private String _reference, _variableType, _variableName;
+	public MemberVariable() {}
+	public MemberVariable(String reference, String _variableType, String variableName) {}
+	
+	public String getReference() {
+		return _reference;
+	}
+	public void setReference(String reference) {
+		this._reference = reference;
+	}
+	public String getVariableType() {
+		return _variableType;
+	}
+	public void setVariableType(String variableType) {
+		this._variableType = variableType;
+	}
+	public String getVariableName() {
+		return _variableName;
+	}
+	public void setVariableName(String variableName) {
+		this._variableName = variableName;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

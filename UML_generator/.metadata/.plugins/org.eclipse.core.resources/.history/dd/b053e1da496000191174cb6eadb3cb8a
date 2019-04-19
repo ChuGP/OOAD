@@ -1,0 +1,91 @@
+package uml_generator;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+
+public class uml_GUI extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textName;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					uml_GUI frame = new uml_GUI();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public uml_GUI() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(1000, 800, 737, 564);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		setContentPane(contentPane);
+		GridBagLayout gbl_contentPane = new GridBagLayout();
+		gbl_contentPane.columnWidths = new int[]{45, 114, 78, 0};
+		gbl_contentPane.rowHeights = new int[]{38, 28, 0};
+		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		contentPane.setLayout(gbl_contentPane);
+		
+		JButton btnRead = new JButton("Read");
+		btnRead.setBackground(new Color(240, 240, 240));
+		btnRead.setFont(new Font("Arial", Font.PLAIN, 14));
+		btnRead.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.out.println(textName.getText());
+			}
+		});
+		
+		
+		
+		JLabel labelName = new JLabel("Class");
+		labelName.setFont(new Font("Arial", Font.PLAIN, 14));
+		GridBagConstraints gbc_labelName = new GridBagConstraints();
+		gbc_labelName.fill = GridBagConstraints.BOTH;
+		gbc_labelName.insets = new Insets(0, 0, 0, 5);
+		gbc_labelName.gridx = 0;
+		gbc_labelName.gridy = 1;
+		contentPane.add(labelName, gbc_labelName);
+		
+		textName = new JTextField();
+		GridBagConstraints gbc_textName = new GridBagConstraints();
+		gbc_textName.fill = GridBagConstraints.BOTH;
+		gbc_textName.insets = new Insets(0, 0, 0, 5);
+		gbc_textName.gridx = 1;
+		gbc_textName.gridy = 1;
+		contentPane.add(textName, gbc_textName);
+		textName.setColumns(10);
+		GridBagConstraints gbc_btnRead = new GridBagConstraints();
+		gbc_btnRead.fill = GridBagConstraints.BOTH;
+		gbc_btnRead.gridx = 2;
+		gbc_btnRead.gridy = 1;
+		contentPane.add(btnRead, gbc_btnRead);
+	}
+}
