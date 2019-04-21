@@ -11,28 +11,41 @@ public class MemberFunction extends ClassMemberAbstract{
 	}
 	
 	@Override
-	public String get_Type() {
+	public String getType() {
 		return _functuonType;
 	}
+	
 	@Override
-	public void set_Type(String _functuonType) {
+	public void setType(String _functuonType) {
 		this._functuonType = _functuonType;
 	}
+	
 	@Override
-	public String get_Reference() {
+	public String getReference() {
 		return _reference;
 	}
+	
 	@Override
-	public void set_Reference(String _reference) {
+	public void setReference(String _reference) {
 		this._reference = _reference;
 	}
+	
 	@Override
-	public String get_Name() {
+	public String getName() {
 		return _functuonName;
 	}
+	
 	@Override
-	public void set_Name(String _functuonName) {
+	public void setName(String _functuonName) {
 		this._functuonName = _functuonName;
 	}
+	
+	@Override
+    public void reSet()
+    {
+		_reference = "";
+		_functuonType = "";
+		_functuonName = "";
+    }
 
 }

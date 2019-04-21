@@ -1,0 +1,56 @@
+package ClassDetailInfo;
+
+import java.util.ArrayList;
+
+public class ClassDetailInfo {
+	private String _class_name;
+	private ClassMemberAbstract _MemberVariable;
+	private ClassMemberAbstract _MemberFunction;
+	private ClassRelarionship _ClassRelarionship;
+
+	public ClassDetailInfo() {}
+	public ClassDetailInfo(String class_name, MemberVariable MemberVariable,MemberFunction MemberFunction, ClassRelarionship ClassRelarionship) {
+		setClassName(class_name);
+		setMemberVariable(MemberVariable);
+		setMemberFunction(MemberFunction);
+		setClassRelarionship(ClassRelarionship);
+	}
+    
+   
+	public String getClassName() {
+		return _class_name;
+	}
+	
+	public void setClassName(String _class_name) {
+		this._class_name = _class_name;
+	}
+
+	public ClassMemberAbstract getMemberVariable() {
+		return _MemberVariable;
+	}
+	
+	public void setMemberVariable(ClassMemberAbstract variableInfo) {
+		this._MemberVariable.add(variableInfo);
+	}
+	
+	public ArrayList<ClassMemberAbstract> getMemberFunction() {
+		return _MemberFunction;
+	}
+	
+	public void setMemberFunction(ClassMemberAbstract MemberFunction) {
+		this._MemberFunction.add(MemberFunction);
+	}
+	
+	public ArrayList<ClassRelarionship> getClassRelarionship() {
+		return _ClassRelarionship;
+	}
+	
+	public void setClassRelarionship(ClassRelarionship ClassRelarionship) {
+		this._ClassRelarionship.add( ClassRelarionship);
+	}
+	
+	
+	
+	
+	
+}

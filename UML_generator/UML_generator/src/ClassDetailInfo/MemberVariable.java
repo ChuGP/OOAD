@@ -11,43 +11,41 @@ public class MemberVariable extends ClassMemberAbstract{
 	}
 	
 	@Override
-	public String get_Reference() {
+	public String getReference() {
 		return _reference;
 	}
 	
 	@Override
-	public void set_Reference(String reference) {
+	public void setReference(String reference) {
 		this._reference = reference;
 	}
 	
 	@Override
-	public String get_Type() {
+	public String getType() {
 		return _variableType;
 	}
 	
 	@Override
-	public void set_Type(String variableType) {
+	public void setType(String variableType) {
 		this._variableType = variableType;
 	}
 	
 	@Override
-	public String get_Name() {
+	public String getName() {
 		return _variableName;
 	}
 	
 	@Override
-	public void set_Name(String variableName) {
+	public void setName(String variableName) {
 		this._variableName = variableName;
 	}
 	
+	@Override
+    public void reSet()
+    {
+		_reference = "";
+		_variableType = "";
+		_variableName = "";
+    }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

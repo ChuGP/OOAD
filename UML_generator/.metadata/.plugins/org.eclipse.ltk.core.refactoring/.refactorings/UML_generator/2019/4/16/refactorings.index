@@ -26,3 +26,4 @@
 1555592368427	Rename type 'MemerFunction'
 1555592796549	Encapsulate field '_class_name'
 1555599089728	Rename method 'getTable_SetToMap'
+1555659025646	Rename method 'set_Reference'

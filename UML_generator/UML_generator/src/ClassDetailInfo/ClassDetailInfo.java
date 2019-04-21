@@ -5,44 +5,65 @@ import java.util.ArrayList;
 public class ClassDetailInfo {
 	private String _class_name;
 	private ArrayList<ClassMemberAbstract> _MemberVariable=new ArrayList<ClassMemberAbstract>();
-//	private MemberVariable[] _MemberVariable;
 	private ArrayList<ClassMemberAbstract> _MemberFunction =new ArrayList<ClassMemberAbstract>();
-	private ArrayList<ClassRelarionship> _ClassRelarionship = new ArrayList<ClassRelarionship>();
+	private ArrayList<ClassMemberAbstract> _ClassRelarionship = new ArrayList<ClassMemberAbstract>();
 
 	public ClassDetailInfo() {}
-	public ClassDetailInfo(String class_name, MemberVariable MemberVariable,MemberFunction MemberFunction, ClassRelarionship ClassRelarionship) {
-		set_class_name(class_name);
-		set_MemberVariable(MemberVariable);
-		set_MemberFunction(MemberFunction);
-		set_ClassRelarionship(ClassRelarionship);
+	public ClassDetailInfo(String class_name, MemberVariable MemberVariable,MemberFunction MemberFunction, ClassMemberAbstract ClassRelarionship) {
+		setClassName(class_name);
+		setMemberVariable(MemberVariable);
+		setMemberFunction(MemberFunction);
+		setClassRelarionship(ClassRelarionship);
 	}
     
    
-	public String get_class_name() {
+	public String getClassName() {
 		return _class_name;
 	}
-	public void set_class_name(String _class_name) {
+	
+	public void setClassName(String _class_name) {
 		this._class_name = _class_name;
 	}
+	
+	public void clearClassName()
+	{
+		this._class_name = "";
+	}
 
-	public ArrayList<ClassMemberAbstract> get_MemberVariable() {
+	public ArrayList<ClassMemberAbstract> getMemberVariable() {
 		return _MemberVariable;
 	}
 	
-	public void set_MemberVariable(ClassMemberAbstract variableInfo) {
+	public void setMemberVariable(ClassMemberAbstract variableInfo) {
 		this._MemberVariable.add(variableInfo);
 	}
-	public ArrayList<ClassMemberAbstract> get_MemberFunction() {
+	
+	public void clearMemberVariable() {
+		this._MemberVariable.clear();
+	}
+	
+	public ArrayList<ClassMemberAbstract> getMemberFunction() {
 		return _MemberFunction;
 	}
-	public void set_MemberFunction(ClassMemberAbstract MemberFunction) {
+	
+	public void setMemberFunction(ClassMemberAbstract MemberFunction) {
 		this._MemberFunction.add(MemberFunction);
 	}
-	public ArrayList<ClassRelarionship> get_ClassRelarionship() {
+	
+	public void clearMemberFunction() {
+		this._MemberFunction.clear();
+	}
+	
+	public ArrayList<ClassMemberAbstract> getClassRelarionship() {
 		return _ClassRelarionship;
 	}
-	public void set_ClassRelarionship(ClassRelarionship ClassRelarionship) {
+	
+	public void setClassRelarionship(ClassMemberAbstract ClassRelarionship) {
 		this._ClassRelarionship.add( ClassRelarionship);
+	}
+	
+	public void clearClassRelarionship() {
+		this._ClassRelarionship.clear();
 	}
 	
 	
