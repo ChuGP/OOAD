@@ -37,22 +37,22 @@ import ClassDetailInfo.MemberVariable;
 import viewTool.Tool;
 
 public class View {
-	private JFrame _frame;
-	private JPanel contentPane;
 	private JTextField textName;
 	private JTable variableTable;
 	private Map<String,ClassDetailInfo> variableList = new TreeMap<>();
-	
-	private ClassDetailInfo gp = new ClassDetailInfo();
 	private ClassMemberAbstract memberVariable = new MemberVariable();
 	private ClassMemberAbstract memberFunction = new MemberFunction();
 	private ClassMemberAbstract relationship = new ClassRelarionship();
 	private JTable functionTable;
 	private JTable relationshipTable;
     private Tool tool = new Tool();
-	public View() {}
+    private ClassDetailInfo gp = new ClassDetailInfo();
+	public Map<String,ClassDetailInfo> getVariableList()
+	{
+		return variableList;
+	}
 	
-	public void guiView( JPanel contentPane ) {		
+	public void guiView( JPanel contentPane) {		
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setFont(new Font("新細明體", Font.PLAIN, 20));
@@ -89,36 +89,11 @@ public class View {
 		textShowDetail.setForeground(Color.BLACK);
 		textShowDetail.setFont(new Font("Footlight MT Light", Font.PLAIN, 30));
 		Input.add(textShowDetail);
-		// Read Name Button
-		JButton btnReadName = new JButton("Read Name");
-		btnReadName.setForeground(Color.WHITE);
-		btnReadName.setBounds(1239, 28, 185, 39);
-		btnReadName.setBackground(new Color(240, 240, 240));
-		btnReadName.setFont(new Font("Arial", Font.PLAIN, 26));
-		btnReadName.setBackground(Color.BLACK);
-		btnReadName.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {			
-				if ( textName.getText() != null && textName.getText() != "" ) {
-					gp.setClassName(textName.getText());
-//					textName.setText(null);
-					tool.showOnTextArea(textShowDetail, gp);
-				}
-				
-				
-			}
-		});
-		Input.add(btnReadName);
-		
-		
-		
 		
 		JLabel lblNewLabel = new JLabel("Member Variable");
 		lblNewLabel.setBounds(122, 194, 257, 41);
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 35));
-		Input.add(lblNewLabel);
-		
-		
-		
+
 		JLabel lblClassDetailInfo = new JLabel("Class Detail Info");
 		lblClassDetailInfo.setBounds(1544, 186, 284, 47);
 		lblClassDetailInfo.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -180,33 +155,6 @@ public class View {
 		
 		TableColumn referenceColumn = variableTable.getColumn("Reference");
 		scrollPaneVariable.setViewportView(variableTable);
-		
-		
-		
-		
-		
-		JButton btnReadVariable = new JButton("Read Variable");
-		btnReadVariable.setForeground(Color.WHITE);
-		btnReadVariable.setBounds(33, 693, 247, 46);
-		btnReadVariable.setFont(new Font("Arial", Font.PLAIN, 26));
-		btnReadVariable.setBackground(Color.BLACK);
-		Input.add(btnReadVariable);
-		
-		btnReadVariable.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				ArrayList<ClassMemberAbstract> member = tool.getTableValue(variableTable,memberVariable,"Variable");
-				gp.clearMemberVariable();
-				for ( int i=0; i < member.size();i++)
-				{
-					gp.setMemberVariable(member.get(i));
-					String ans = member.get(i).getReference()+ " " + member.get(i).getType() + " " + member.get(i).getName() ;
-					textShowDetail.append(ans);
-				}
-				variableList.put(gp.getClassName(), gp);
-				tool.showOnTextArea(textShowDetail, gp);
-			}
-		});
-		
 		JLabel lblMemberFunction = new JLabel("Member Function");
 		lblMemberFunction.setBounds(674, 194, 266, 41);
 		lblMemberFunction.setFont(new Font("Arial", Font.PLAIN, 35));
@@ -262,36 +210,7 @@ public class View {
 		functionTable.setRowHeight(25);
 		scrollPaneFunction.setViewportView(functionTable);
 		
-		TableColumn referenceColumn_function = functionTable.getColumn("Reference");
-		
-		
-		
-		
-		
-		
-		JButton btnReadFunction = new JButton("Read Function");
-		btnReadFunction.setForeground(Color.WHITE);
-		btnReadFunction.setBounds(539, 693, 290, 46);
-		btnReadFunction.setBackground(Color.BLACK);
-		btnReadFunction.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				ArrayList<ClassMemberAbstract> member = tool.getTableValue(functionTable,memberFunction,"Function");
-				gp.clearMemberFunction();
-				for ( int i=0; i < member.size();i++)
-				{
-					gp.setMemberFunction(member.get(i));
-					String ans = member.get(i).getReference()+ " " + member.get(i).getType() + " " + member.get(i).getName() ;
-					textShowDetail.append(ans);
-				}
-				variableList.put(gp.getClassName(), gp);
-				tool.showOnTextArea(textShowDetail, gp);
-
-			}
-		});
-		
-		btnReadFunction.setFont(new Font("Arial", Font.PLAIN, 26));
-		Input.add(btnReadFunction);
-		
+		TableColumn referenceColumn_function = functionTable.getColumn("Reference");	
 		JLabel labelRelation = new JLabel("Class Relationship");
 		labelRelation.setFont(new Font("Arial", Font.PLAIN, 35));
 		labelRelation.setBounds(1157, 194, 281, 41);
@@ -348,13 +267,78 @@ public class View {
 		});
 		
 		TableColumn referenceColumn_relationship = relationshipTable.getColumn("Relationship");
-		relationshipTable.setRowHeight(25);
-		
+		relationshipTable.setRowHeight(25);		
 		scrollPaneRelationship.setViewportView(relationshipTable);
+		
+		// Read Name Button
+		JButton btnReadName = new JButton("Read Name");
+		btnReadName.setForeground(Color.WHITE);
+		btnReadName.setBounds(1239, 28, 185, 39);
+		btnReadName.setBackground(new Color(240, 240, 240));
+		btnReadName.setFont(new Font("Arial", Font.PLAIN, 26));
+		btnReadName.setBackground(Color.BLACK);
+		btnReadName.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {			
+				if ( textName.getText() != null && textName.getText() != "" ) {
+					gp.setClassName(textName.getText());
+					tool.showOnTextArea(textShowDetail, gp);
+				}
+				
+				
+			}
+		});
+		Input.add(btnReadName);
+		
+		JButton btnReadVariable = new JButton("Read Variable");
+		btnReadVariable.setForeground(Color.WHITE);
+		btnReadVariable.setBounds(33, 693, 247, 46);
+		btnReadVariable.setFont(new Font("Arial", Font.PLAIN, 26));
+		btnReadVariable.setBackground(Color.BLACK);
+		Input.add(btnReadVariable);
+		
+		// Read Variable Button
+		btnReadVariable.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<ClassMemberAbstract> member = tool.getTableValue(variableTable,memberVariable,"Variable");
+				gp.clearMemberVariable();
+				for ( int i=0; i < member.size();i++)
+				{
+					gp.setMemberVariable(member.get(i));
+					String ans = member.get(i).getReference()+ " " + member.get(i).getType() + " " + member.get(i).getName() ;
+					textShowDetail.append(ans);
+				}
+				variableList.put(gp.getClassName(), gp);
+				tool.showOnTextArea(textShowDetail, gp);
+			}
+		});
+		
+		JButton btnReadFunction = new JButton("Read Function");
+		btnReadFunction.setForeground(Color.WHITE);
+		btnReadFunction.setBounds(539, 693, 290, 46);
+		btnReadFunction.setBackground(Color.BLACK);
+		//Read Function Button
+		btnReadFunction.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ArrayList<ClassMemberAbstract> member = tool.getTableValue(functionTable,memberFunction,"Function");
+				gp.clearMemberFunction();
+				for ( int i=0; i < member.size();i++)
+				{
+					gp.setMemberFunction(member.get(i));
+					String ans = member.get(i).getReference()+ " " + member.get(i).getType() + " " + member.get(i).getName() ;
+					textShowDetail.append(ans);
+				}
+				variableList.put(gp.getClassName(), gp);
+				tool.showOnTextArea(textShowDetail, gp);
+                 
+			}
+		});
+		btnReadFunction.setFont(new Font("Arial", Font.PLAIN, 26));
+		Input.add(btnReadFunction);
 		
 		JButton btnReadRelationship = new JButton("Read Relationship");
 		btnReadRelationship.setForeground(Color.WHITE);
 		btnReadRelationship.setBackground(Color.BLACK);
+		//Read Relationship Button
 		btnReadRelationship.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		      ArrayList<ClassMemberAbstract> member = tool.getTableValue(relationshipTable,relationship,"Relation");
@@ -374,12 +358,15 @@ public class View {
 		Input.add(btnReadRelationship);
 		
 		JButton btnDrawSketch = new JButton("Draw Sketch \u2192");
+		// Draw Sketch Button
 		btnDrawSketch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tool.clearTableValue(variableTable);
 				tool.clearTableValue(functionTable);
 				tool.clearTableValue(relationshipTable);
 				textShowDetail.setText("");
+				// 這邊你要把variablelist拿走!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				
 			}
 		});
 		btnDrawSketch.setFont(new Font("Arial", Font.PLAIN, 26));
@@ -387,6 +374,7 @@ public class View {
 		Input.add(btnDrawSketch);
 		
 		JButton btnClearVariable = new JButton("Clear Variable");
+		// Clear Variable Button
 		btnClearVariable.setBackground(Color.WHITE);
 		btnClearVariable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -401,6 +389,7 @@ public class View {
 		Input.add(btnClearVariable);
 		
 		JButton btnClearFunction = new JButton("Clear Function");
+		//Clear Function Button
 		btnClearFunction.setBackground(Color.WHITE);
 		btnClearFunction.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -414,6 +403,7 @@ public class View {
 		Input.add(btnClearFunction);
 		
 		JButton btnClearRelationship = new JButton("Clear Relationship");
+		// Clear Relationship Button
 		btnClearRelationship.setBackground(Color.WHITE);
 		btnClearRelationship.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -427,12 +417,13 @@ public class View {
 		Input.add(btnClearRelationship);
 		
 		JButton btnClearName = new JButton("Clear Name");
+		//Clear Name Button
 		btnClearName.setFont(new Font("Arial", Font.PLAIN, 26));
 		btnClearName.setBackground(Color.WHITE);
 		btnClearName.setBounds(1239, 68, 185, 39);
 		Input.add(btnClearName);
 		
-		
+		// Clear Name Button
 		btnClearName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textName.setText(null);
@@ -465,6 +456,7 @@ public class View {
 		comboBox_relationship.addItem("Composition");
 		comboBox_relationship.addItem("Dependency");
 		referenceColumn_relationship.setCellEditor(new DefaultCellEditor(comboBox_relationship));
+//		System.out.println(variableList.size());
 	}
 
 }

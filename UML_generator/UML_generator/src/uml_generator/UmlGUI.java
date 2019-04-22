@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 
+import ClassDetailInfo.ClassDetailInfo;
 import ClassDetailInfo.ClassMemberAbstract;
 
 import java.awt.Dimension;
@@ -31,7 +32,7 @@ import java.awt.Component;
 public class UmlGUI extends JFrame {
 
 	private JPanel contentPane;
-
+	private ClassDetailInfo gp = new ClassDetailInfo();
 	/**
 	 * Launch the application.
 	 */
@@ -72,5 +73,7 @@ public class UmlGUI extends JFrame {
 		contentPane.setLayout(null);
 		View view = new View();  // 我刻意移過去的
 		view.guiView(contentPane);
+//		System.out.println(view.getVariableList());
+		
 	}
 }
