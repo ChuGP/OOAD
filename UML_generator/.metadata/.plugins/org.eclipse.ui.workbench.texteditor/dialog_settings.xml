@@ -9,6 +9,8 @@
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
 			<item value="actionPerformed"/>
+			<item value="show"/>
+			<item value="Detail"/>
 			<item value="Clear"/>
 			<item value="System"/>
 			<item value="setClassRelarionship"/>
