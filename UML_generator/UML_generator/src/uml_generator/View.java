@@ -100,7 +100,7 @@ public class View {
 			public void actionPerformed(ActionEvent arg0) {			
 				if ( textName.getText() != null && textName.getText() != "" ) {
 					gp.setClassName(textName.getText());
-					textName.setText(null);
+//					textName.setText(null);
 					tool.showOnTextArea(textShowDetail, gp);
 				}
 				
@@ -435,6 +435,7 @@ public class View {
 		
 		btnClearName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textName.setText(null);
 				textShowDetail.setText("");
 				gp.clearClassName();
 				tool.showOnTextArea(textShowDetail, gp);
