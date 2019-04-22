@@ -1,0 +1,42 @@
+package UnitTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import ClassDetailInfo.ClassMemberAbstract;
+
+class MemberFunctionTest {
+    
+	private ClassMemberAbstract memberFunction;
+	@BeforeEach
+	void setUp() throws Exception {
+		memberFunction.setReference("Public");
+		memberFunction.setType("int");
+		memberFunction.setName("draw(int x, int y)");
+		
+	}
+
+	@Test
+	void testReSet() {
+		memberFunction.reSet();
+		assertEquals("", memberFunction.getName());
+	}
+
+	@Test
+	void testGetReference() {
+		assertEquals("Public", memberFunction.getReference());
+	}
+
+	@Test
+	void testGetType() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetName() {
+		fail("Not yet implemented");
+	}
+
+}

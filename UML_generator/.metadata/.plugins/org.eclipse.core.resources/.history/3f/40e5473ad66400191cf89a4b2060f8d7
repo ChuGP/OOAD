@@ -1,0 +1,54 @@
+package UnitTest;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class ClassDetailInfoTest {
+    private ClassDetailInfo classDetailInfo
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@Test
+	void testGetClassName() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testClearClassName() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetMemberVariable() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testClearMemberVariable() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetMemberFunction() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testClearMemberFunction() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetClassRelarionship() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testClearClassRelarionship() {
+		fail("Not yet implemented");
+	}
+
+}
