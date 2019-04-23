@@ -345,7 +345,7 @@ public class View {
 				tool.clearTableValue(relationshipTable);
 				textShowDetail.setText("");
 				tabbedPane.setSelectedComponent(panel);
-				// 這邊你要把gp(單一個classinfo)拿走!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				// 這邊你要把variablelist拿走!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				
 			}
 		});
