@@ -1,0 +1,11 @@
+package uml_generator;
+
+import java.awt.event.ActionListener;
+
+public class ClassInfoListener implements ActionListener{
+	
+  public ClassInfoListener() {
+	  
+  }
+
+}

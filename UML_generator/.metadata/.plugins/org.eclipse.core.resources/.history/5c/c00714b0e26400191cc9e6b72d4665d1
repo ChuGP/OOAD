@@ -1,0 +1,53 @@
+package uml_generator;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Map;
+import java.util.TreeMap;
+
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+import ClassDetailInfo.ClassDetailInfo;
+import ClassDetailInfo.ClassMemberAbstract;
+import ClassDetailInfo.ClassRelarionship;
+import ClassDetailInfo.MemberFunction;
+import ClassDetailInfo.MemberVariable;
+import viewTool.Tool;
+
+public class ClassInfoListener implements ActionListener{
+	private JPanel contentPane;
+	private JTextField textName;
+	private JTable variableTable;
+	private JTable functionTable;
+	private JTable relationshipTable;
+    private Tool tool = new Tool();
+    private Map<String,ClassDetailInfo> variableList = new TreeMap<>();
+	private ClassDetailInfo gp = new ClassDetailInfo();
+	private ClassMemberAbstract memberVariable = new MemberVariable();
+	private ClassMemberAbstract memberFunction = new MemberFunction();
+	private ClassMemberAbstract relationship = new ClassRelarionship();
+	
+    public ClassInfoListener() 
+    { 
+	  
+    }
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void readName() 
+	{
+		if ( textName.getText() != null && textName.getText() != "" ) {
+			gp.setClassName(textName.getText());
+//			textName.setText(null);
+			tool.showOnTextArea(textShowDetail, gp);
+		}
+	}
+
+}

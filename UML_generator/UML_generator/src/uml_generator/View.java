@@ -63,7 +63,7 @@ public class View {
 		tabbedPane.addTab("Input Class Info", null, Input, null);
 		Input.setLayout(null);
 		
-		JPanel panel = new JPanel();
+		JPanel panel = new JPanel(); // 這邊要把你的panel替換過來!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		tabbedPane.addTab("Sketch", null, panel, null);
 		panel.setLayout(null);
 
@@ -365,6 +365,7 @@ public class View {
 				tool.clearTableValue(functionTable);
 				tool.clearTableValue(relationshipTable);
 				textShowDetail.setText("");
+				tabbedPane.setSelectedComponent(panel);
 				// 這邊你要把variablelist拿走!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				
 			}

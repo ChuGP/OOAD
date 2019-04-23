@@ -1,0 +1,31 @@
+package uml_generator;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
+import viewTool.Tool;
+
+public class ClassInfoListener implements ActionListener{
+	private JPanel contentPane;
+	private JTextField textName;
+	private JTable variableTable;
+	private JTable functionTable;
+	private JTable relationshipTable;
+    private Tool tool = new Tool();
+    public ClassInfoListener() 
+    { 
+	  
+    }
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+}

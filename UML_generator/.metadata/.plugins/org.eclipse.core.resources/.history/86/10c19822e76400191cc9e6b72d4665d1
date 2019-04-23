@@ -1,0 +1,89 @@
+package uml_generator;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import ClassDetailInfo.ClassDetailInfo;
+import ClassDetailInfo.ClassMemberAbstract;
+import ClassDetailInfo.ClassRelarionship;
+import ClassDetailInfo.MemberFunction;
+import ClassDetailInfo.MemberVariable;
+import viewTool.Tool;
+
+public class ClassInfoListener implements ActionListener{
+	private JPanel contentPane;
+	private JTextField textName;
+	private JTextArea textShowDetail;
+	private JTable variableTable;
+	private JTable functionTable;
+	private JTable relationshipTable;
+    private Tool tool = new Tool();
+    private Map<String,ClassDetailInfo> variableList = new TreeMap<>();
+	private ClassDetailInfo gp = new ClassDetailInfo();
+	private ClassMemberAbstract memberVariable = new MemberVariable();
+	private ClassMemberAbstract memberFunction = new MemberFunction();
+	private ClassMemberAbstract relationship = new ClassRelarionship();
+	
+    public ClassInfoListener(JTextField _textName,JTextArea _textShowDetail) 
+    { 
+	  this.textName = _textName;
+	  this.textShowDetail = _textShowDetail;
+    }
+    public ClassInfoListener(JTable _variableTable,JTextArea _textShowDetail) 
+    { 
+	  this.variableTable = _variableTable;
+	  this.textShowDetail = _textShowDetail;
+    }
+    
+
+	@Override
+	public void actionPerformed(ActionEvent e) 
+	{   
+		
+		System.out.println(((JButton) (e.getSource())).getText());
+		if ( ((JButton) (e.getSource())).getText() == "Read Name")
+		{
+			System.out.println("in");
+			readName() ;
+		}
+		else if ()
+		{
+			readVariable();
+		}
+			
+		
+	}
+	
+	public void readName() 
+	{
+		if ( textName.getText() != null && textName.getText() != "" ) {
+			gp.setClassName(textName.getText());
+			//			textName.setText(null);
+			tool.showOnTextArea(textShowDetail, gp);
+		}
+	}
+	
+	public void readVariable()
+	{
+		ArrayList<ClassMemberAbstract> member = tool.getTableValue(variableTable,memberVariable,"Variable");
+		gp.clearMemberVariable();
+		for ( int i=0; i < member.size();i++)
+		{
+			gp.setMemberVariable(member.get(i));
+			String ans = member.get(i).getReference()+ " " + member.get(i).getType() + " " + member.get(i).getName() ;
+			textShowDetail.append(ans);
+		}
+		variableList.put(gp.getClassName(), gp);
+		tool.showOnTextArea(textShowDetail, gp);
+	}
+
+}
