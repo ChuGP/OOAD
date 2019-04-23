@@ -75,5 +75,6 @@ public class UmlGUI extends JFrame {
 		view.guiView(contentPane);
 //		System.out.println(view.getVariableList());
 		
+		
 	}
 }
