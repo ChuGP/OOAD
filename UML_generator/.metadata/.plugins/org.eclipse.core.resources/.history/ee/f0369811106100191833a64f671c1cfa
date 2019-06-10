@@ -1,8 +1,0 @@
-package uml_generator;
-
-public class Variable_Detail {
-	Pubilc ariable_Detail() {
-		
-	}
-
-}

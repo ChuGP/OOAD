@@ -1,8 +1,0 @@
-package ClassDetailInfo;
-
-public class MemerFunction {
-	private String _reference, _functuonType, _variableName;
-	public MemerFunction() {}
-	public MemerFunction() {}
-
-}

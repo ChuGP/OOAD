@@ -1,9 +1,0 @@
-package uml_generator;
-
-public class variable_Detail {
-	private String _reference,_variable_type, _variable_name;
-	public variable_Detail(String reference,String variable_type,String variable_name) {
-		
-	}
-
-}

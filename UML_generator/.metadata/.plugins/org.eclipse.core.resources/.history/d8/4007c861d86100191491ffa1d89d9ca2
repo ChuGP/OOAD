@@ -1,7 +1,0 @@
-package ClassDetailInfo;
-
-public class ClassRelarionship {
-    private String realtionship, className;
-    public ClassRelarionship() {}
-    public ClassRelarionship(String realtionship, String className) {}
-}

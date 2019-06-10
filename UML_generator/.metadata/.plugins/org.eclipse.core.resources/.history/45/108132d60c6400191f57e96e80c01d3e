@@ -1,6 +1,0 @@
-package viewTool;
-
-public class tool {
-	public tool() {}
-
-}
