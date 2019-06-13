@@ -84,11 +84,11 @@ public class ArrangeCalculator {
             e.printStackTrace();
         }
     }
-    public void bindRelation(Point start, Point end){
+    public void bindRelation(Point start, Point end,RelationType relationType){
         ClassFormat startClass=checkPointContains(start),endClass=checkPointContains(end);
         if(startClass !=null && endClass!=null){
             ClassRelationGenerator relationGenerator=new ClassRelationGenerator();
-            Relation relation=relationGenerator.generateRelation(startClass,endClass, RelationType.Association);
+            Relation relation=relationGenerator.generateRelation(startClass,endClass, relationType);
             linkTwoUnitWithMinDistance(start,end,startClass,endClass,relation);
             diagram.addToDiagram(relation);
         }

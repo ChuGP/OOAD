@@ -1,6 +1,7 @@
 package listeners;
 
 import com.sun.javafx.iio.ImageStorage;
+import diagrams.RelationType;
 import diagrams.UMLClassDiagramDrawer;
 
 import javax.imageio.ImageIO;
@@ -17,6 +18,7 @@ public class Listener {
     UMLClassDiagramDrawer drawer;
     private ListenerHandler listenerHandler;
     private Point start,end;
+    private RelationType relation= RelationType.Association;
     public Listener(UMLClassDiagramDrawer drawer, ListenerHandler listenerHandler){
         this.listenerHandler=listenerHandler;
         this.drawer=drawer;
@@ -77,12 +79,19 @@ public class Listener {
         }
     };
 
+    public ItemListener relationListener = e -> {
+        if(e.getStateChange()== ItemEvent.SELECTED) {
+            JRadioButton button = (JRadioButton) e.getItem();
+            relation=RelationType.valueOf(button.getText());
+        }
+    };
+
     public ItemListener addRelation=new ItemListener() {
         @Override
         public void itemStateChanged(ItemEvent e) {
-            if(e.getStateChange()==1)
+            if(e.getStateChange()== ItemEvent.SELECTED)
                 drawer.addMouseListener(addRelationAdapter);
-            else if(e.getStateChange()==2)
+            else if(e.getStateChange()== ItemEvent.DESELECTED)
                 drawer.removeMouseListener(addRelationAdapter);
         }
     };
@@ -90,9 +99,9 @@ public class Listener {
     public ItemListener removeRelation=new ItemListener() {
         @Override
         public void itemStateChanged(ItemEvent e) {
-            if(e.getStateChange()==1)
+            if(e.getStateChange()== ItemEvent.SELECTED)
                 drawer.addMouseListener(removeRelationAdapter);
-            else if(e.getStateChange()==2)
+            else if(e.getStateChange()== ItemEvent.DESELECTED)
                 drawer.removeMouseListener(removeRelationAdapter);
         }
     };
@@ -100,9 +109,9 @@ public class Listener {
     public ItemListener moveUnit=new ItemListener() {
         @Override
         public void itemStateChanged(ItemEvent e) {
-            if(e.getStateChange()==1)
+            if(e.getStateChange()== ItemEvent.SELECTED)
                 drawer.addMouseListener(moveUnitAdapter);
-            else if(e.getStateChange()==2)
+            else if(e.getStateChange()== ItemEvent.DESELECTED)
                 drawer.removeMouseListener(moveUnitAdapter);
         }
     };
@@ -110,9 +119,9 @@ public class Listener {
     public ItemListener removeUnit=new ItemListener() {
         @Override
         public void itemStateChanged(ItemEvent e) {
-            if(e.getStateChange()==1)
+            if(e.getStateChange()== ItemEvent.SELECTED)
                 drawer.addMouseListener(removeUnitAdapter);
-            else if(e.getStateChange()==2)
+            else if(e.getStateChange()== ItemEvent.DESELECTED)
                 drawer.removeMouseListener(removeUnitAdapter);
         }
     };
@@ -128,7 +137,7 @@ public class Listener {
         public void mouseReleased(MouseEvent e) {
             super.mouseReleased(e);
             end=e.getPoint();
-            listenerHandler.executeAddRelation((Point)start.clone(),(Point)end.clone());
+            listenerHandler.executeAddRelation((Point)start.clone(),(Point)end.clone(),relation);
         }
     };
 

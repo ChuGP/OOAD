@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -14,6 +15,7 @@ import javax.swing.table.TableColumn;
 
 import ClassDetailInfo.*;
 import adapter.ClassDetailInfoDTO;
+import diagrams.RelationType;
 import diagrams.UMLClassDiagram;
 import diagrams.UMLClassDiagramDrawer;
 import generator.ArrangeCalculator;
@@ -50,10 +52,28 @@ public class View {
 		listenerHandler=new ListenerHandler(diagram);
 		listener=new Listener(drawer,listenerHandler);
 		ButtonGroup group=new ButtonGroup();
+		ButtonGroup relationGroup=new ButtonGroup();
+		JRadioButton extensionButton=new JRadioButton(RelationType.Extension.toString());
+		JRadioButton associationButton=new JRadioButton(RelationType.Association.toString());
+		JRadioButton dependencyButton=new JRadioButton(RelationType.Dependency.toString());
+		JRadioButton compositionButton=new JRadioButton(RelationType.Composition.toString());
+		JRadioButton aggregationButton=new JRadioButton(RelationType.Aggregation.toString());
+		JRadioButton implementationButton=new JRadioButton(RelationType.Implementation.toString());
+		relationGroup.add(associationButton);
+		relationGroup.add(dependencyButton);
+		relationGroup.add(compositionButton);
+		relationGroup.add(aggregationButton);
+		relationGroup.add(implementationButton);
+		relationGroup.add(extensionButton);
+		Enumeration<AbstractButton>relationButtons=relationGroup.getElements();
 		JRadioButton moveUnit=new JRadioButton("Move Unit");
 		JRadioButton addRelation=new JRadioButton("Add Relation");
 		JRadioButton removeRelation=new JRadioButton("Remove Relation");
 		JRadioButton removeUnit=new JRadioButton("Remove Unit");
+		group.add(moveUnit);
+		group.add(addRelation);
+		group.add(removeRelation);
+		group.add(removeUnit);
 		JButton outputButton=new JButton("Output");
 		JButton saveButton=new JButton("Save");
 		JButton openFileButton=new JButton("Open File");
@@ -64,17 +84,30 @@ public class View {
 		addRelation.addItemListener(listener.addRelation);
 		removeRelation.addItemListener(listener.removeRelation);
 		removeUnit.addItemListener(listener.removeUnit);
-		openFileButton.setBounds(x-300,50,75,30);
-		outputButton.setBounds(x-200,50,75,30);
-		saveButton.setBounds(x-100,50,75,30);
-		moveUnit.setBounds(x-450,0,100,50);
-		addRelation.setBounds(x-350,0,100,50);
-		removeRelation.setBounds(x-250,0,150,50);
-		removeUnit.setBounds(x-100,0,100,50);
-		group.add(moveUnit);
-		group.add(addRelation);
-		group.add(removeRelation);
-		group.add(removeUnit);
+		openFileButton.setBounds(x-425,50,125,30);
+		outputButton.setBounds(x-300,50,100,30);
+		saveButton.setBounds(x-200,50,100,30);
+		openFileButton.setFont(new Font(openFileButton.getText(),Font.PLAIN,20));
+		outputButton.setFont(new Font(outputButton.getText(),Font.PLAIN,20));
+		saveButton.setFont(new Font(saveButton.getText(),Font.PLAIN,20));
+		Enumeration<AbstractButton> functionButtons=group.getElements();
+		int delta=200;
+		while(functionButtons.hasMoreElements()){
+			AbstractButton functionButton=functionButtons.nextElement();
+			functionButton.setFont(new Font(functionButton.getText(),Font.PLAIN,20));
+			functionButton.setBounds(x-delta,0,200,50);
+			delta+=200;
+		}
+		int y=100;
+		while (relationButtons.hasMoreElements()) {
+			AbstractButton relationButton=relationButtons.nextElement();
+			relationButton.setFont(new Font(relationButton.getText(),Font.PLAIN,20));
+			relationButton.setBounds(x-200,y,200,50);
+			y+=50;
+		}
+		relationButtons=relationGroup.getElements();
+		while(relationButtons.hasMoreElements())
+			relationButtons.nextElement().addItemListener(listener.relationListener);
 		drawer.add(openFileButton);
 		drawer.add(outputButton);
 		drawer.add(saveButton);
@@ -82,6 +115,11 @@ public class View {
 		drawer.add(addRelation);
 		drawer.add(removeRelation);
 		drawer.add(removeUnit);
+		drawer.add(associationButton);
+		drawer.add(implementationButton);
+		drawer.add(aggregationButton);
+		drawer.add(compositionButton);
+		drawer.add(dependencyButton);
 		drawer.setVisible(true);
 		return drawer;
 	}

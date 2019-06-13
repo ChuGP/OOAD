@@ -1,5 +1,6 @@
 package listeners;
 
+import diagrams.RelationType;
 import diagrams.UMLClassDiagram;
 import generator.ArrangeCalculator;
 import output.DiagramReader;
@@ -18,8 +19,8 @@ public class ListenerHandler {
         arrangeCalculator=new ArrangeCalculator(diagram);
     }
 
-    public void executeAddRelation(Point start, Point end){
-        arrangeCalculator.bindRelation(start,end);
+    public void executeAddRelation(Point start, Point end, RelationType relationType){
+        arrangeCalculator.bindRelation(start,end,relationType);
         executeSaveDiagram(autoSavePath);
     }
 
